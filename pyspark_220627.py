@@ -51,13 +51,19 @@ from sklearn import metrics
 from pyspark.sql import Row, context
 import pandas as pd
 
-spark = SparkSession.builder.getOrCreate()
+spark = SparkSession.builder.appName('Basics').getOrCreate()
 
-read_df = spark.read.format('com.databricks.spark.csv').options(header='true', inferSchema='true').load('datasets_directory')
 # pd.read_csv -> pyspark
+read_pd = pd.read_csv('datasets_directory')
+read_ps = spark.read.format('com.databricks.spark.csv').options(header='true', inferSchema='true').load('datasets_directory')
 
+
+# Empty DataFrame
 generate_empty_df =  pd.DataFrame()
+#판다스
 generate_empty_pyspark = spark.sparkContext.emptyRDD()
+generate_empty_pyspark = spark.createDataFrame(generate_empty_pyspark) # empty RDD -> DataFrame 
+#Pyspark 
 
 
 
