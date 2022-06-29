@@ -1,4 +1,8 @@
 """
+SparkSession -> DataFrame 생성을 위한
+SparkContext -> RDD 생성을 위한
+
+
 collect() → 해당 데이터 프레임의 모든 row 반환
 
 - [sqlContext.read](http://sqlContext.read) → DataFrame읽을때 사용  [DataFrameReader를 반환]**
@@ -26,7 +30,7 @@ collect() → 해당 데이터 프레임의 모든 row 반환
 + keep = 'last' 옵션 → 맨마지막 값 남김
 
 
-- spark = SparkSession.builder.appName('SparkByExamples.com').getOrCreate()
+- spark = SparkSession.builder.appName('SparkByExamples.com').getOrCreate()clear
 
 emptyRDD = spark.sparkContext.emptyRDD()
 
